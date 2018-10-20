@@ -1,4 +1,4 @@
-import application.rpc.HelloService;
+import application.receive.HelloService;
 import org.junit.Test;
 import sun.misc.ProxyGenerator;
 

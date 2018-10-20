@@ -1,14 +1,12 @@
 package application.util;
 
-import application.rpc.HelloService;
+import application.receive.HelloService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 import sun.misc.ProxyGenerator;
 
 import java.io.*;
 import java.lang.reflect.Method;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 public class FileUtil {
