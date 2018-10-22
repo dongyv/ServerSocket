@@ -1,7 +1,10 @@
 package application.observer;
 
 import application.observer.subscribe.Client;
+import application.receive.HelloService;
+import application.util.ClassUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,10 +26,10 @@ public class PushService implements Push {
     }
 
     @Override
-    public void notifyClients() {
+    public void notifyClients(String... interfaces) {
         Iterator<Client> iterator = clients.iterator();
         while(iterator.hasNext()){
-            iterator.next().receiveNotify();
+            iterator.next().receiveNotify(interfaces);
         }
     }
 
@@ -35,7 +38,18 @@ public class PushService implements Push {
      * 对需要更新的方法进行对应处理
      */
     @Override
-    public void updateWeather() {
-
+    public void updateDate() {
+        try {
+            List<Class<?>> classes = ClassUtil.getAllAssignedClass(HelloService.class);
+            String[] s = new String[classes.size()];
+            for(int i=0;i<classes.size();i++){
+                s[i] = classes.get(i).getName();
+            }
+            notifyClients(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

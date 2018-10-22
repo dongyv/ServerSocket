@@ -17,9 +17,9 @@ public interface Push {
     /**
      * 通知
      */
-    void notifyClients();
+    void notifyClients(String...interfacees);
     /**
      * 主题内容更新
      */
-    void updateWeather();
+    void updateDate();
 }
