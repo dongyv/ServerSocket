@@ -1,8 +1,5 @@
 package application.util;
 
-
-import application.modle.resource.LoanBalance;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -72,20 +69,4 @@ public class ClassUtil {
     }
 
 
-    public static void main(String[] args) {
-        try {
-            System.out.println("获取所有子类和实现类：");
-            for (Class<?> c : getAllAssignedClass(LoanBalance.class)) {
-                System.out.println(c.getName());
-            }
-            System.out.println("获取所有类：");
-            for (Class<?> c : getClasses(LoanBalance.class)) {
-                System.out.println(c.getName());
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
